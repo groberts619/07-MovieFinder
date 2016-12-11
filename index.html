@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="" ng-app="app">
+<head>
+	<meta charset="utf-8"> 
+	<title>MR. SHOWBOT</title>
+	<!-- Using Angular-toastr CSS-->
+	<link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+	<!-- Using Bootstrap CSS-->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+	<div class="container" ng-controller="SearchController as search">	
+		<div class="jumbotron">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h1 style="color: #d12026">MR. SHOWBOT</h1>
+						<p style="font-size: 100%">Geek out on everything from TV shows to movies!</p>
+						<div class="hidden-sm hidden-xs visible-md visible-lg">
+							<p style="font-size: 100%">Oh, and don't forget the popcorn...</p>
+						</div>
+					</div>
+					<div class="col-md-6 hidden-sm hidden-xs visible-md visible-lg">
+						<img src="img/mrr_blog_popcorn.jpg">						
+					</div>
+				</div>
+			</div>
+		</div>
+		<form ng-submit="search.findShow(search.showInput)">
+			<div class="input-group">
+				<input type="text" class="form-control" ng-model="search.showInput" placeholder="What's your show or film?">
+				<span class="input-group-btn">
+					<button class="btn" ng-click="search.findShow(search.showInput)" type="button">GO!</button>
+				</span>
+			</div>
+		</form>	
+		<div class="row" style="margin-top: 24px;">
+			<div class="col-sm-4" ng-repeat= "show in search.results" id="outputs">
+				<div class="panel">
+  					<div class="panel-heading text-center">{{show.Title}}</div>
+  					<div class="panel-body text-center">
+  						<img ng-src={{show.Poster}} loading-src="img/no_poster.png" alt="">
+  						<br>
+  						<small>Released in {{show.Year}}</small>
+  						<br>
+  						<a href="http//www.imdb.com/title/{{show.imdbID}}">Click here to view on IMDb</a>
+  					</div>
+				</div>
+			</div>				
+		</div>
+	</div>
+	
+	<!-- Angular.js -->
+	<script src="bower_components/angular/angular.js"></script>
+	<!-- jQuery -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<!-- Bootstrap JavaScript -->
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>  
+	<!-- Angular-Toastr-->
+	<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+	<!-- Angular-Img-Fallback -->
+	<script src="bower_components/angular-img-fallback/angular.dcb-img-fallback.min.js"></script>
+	<script src="app/app.module.js"></script>
+	<script src="app/search/search.controller.js"></script>
+	<script src="app/core/movie.factory.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'someFont';
+	src: url('img/MR ROBOT.ttf') format('truetype');
+}
+
+h1 {
+	font-family: 'someFont';
+	font-size: 170%;
+}
+
+.jumbotron {
+	background-color: black;
+}
+
+body { 
+  background: url(img/theater_background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+	color: white;
+}
+
+img {
+	max-width: 100%;
+}
+
+button {
+	background-color: black;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.panel {
+	background-color: black;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+
